@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+require './lib/ppg_leaders'
 
-puts "Points Per Game Leaders"
+PpgLeaders::CLI.new.call

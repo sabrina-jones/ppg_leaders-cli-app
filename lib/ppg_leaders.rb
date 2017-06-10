@@ -1,5 +1,2 @@
-require "ppg_leaders/version"
-
-module PpgLeaders
-  # Your code goes here...
-end
+require_relative "ppg_leaders/version"
+require_relative './ppg_leaders/cli'
