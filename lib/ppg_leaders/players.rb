@@ -2,11 +2,11 @@ class PpgLeaders::Players
 attr_accessor :name, :jersey, :position
   def self.leaders
     #retun a list of all ppg leaders cavs
-    puts <<-DOC
-     1. LeBron James
-     2. Kyrie Irving
-     3. Kevin Love
-    DOC
+    #puts <<-DOC
+    # 1. LeBron James
+    # 2. Kyrie Irving
+    # 3. Kevin Love
+  #  DOC
 
     player_1 = self.new
     player_1.name = "Lebron James"

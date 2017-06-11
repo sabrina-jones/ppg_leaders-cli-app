@@ -10,22 +10,21 @@ class PpgLeaders::CLI
   def list_leaders
    puts "Points Per Game Leaders for the Cavaliers"
    @players = PpgLeaders::Players.leaders
+   @players.each.with_index(1) do |player, index|
+     puts "#{index}. #{player}"
+   end
   end
 
 
   def player_info
     input = nil
     while input != "exit"
-    puts "Enter the name of the player you'd like to know more about, type list to see the list again or type exit:"
+    puts "Enter the number of the player you'd like to know more about, type list to see the list again or type exit:"
     input = gets.chomp
-    case input
-    when "James"
-      puts "More on LeBron"
-    when "Irving"
-      puts "More on Irving"
-    when "Love"
-      puts "More on Love"
-    when "list"
+
+    if input.to_i > 0
+      puts @players[input.to_i-1]
+    elsif input == "list"
       list_leaders
     else
       puts "Not valid input enter list or exit"
