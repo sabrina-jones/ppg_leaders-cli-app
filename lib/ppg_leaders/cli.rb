@@ -2,29 +2,16 @@
 class PpgLeaders::CLI
 
   def call
-    list_leaders_cavs
-    list_leaders_warriors
+    list_leaders
     player_info
     exit_player
   end
 
-  def list_leaders_cavs
+  def list_leaders
    puts "Points Per Game Leaders for the Cavaliers"
-   puts <<-DOC
-    1. LeBron James
-    2. Kyrie Irving
-    3. Kevin Love
-   DOC
+   @players = PpgLeaders::Players.leaders
   end
 
-  def list_leaders_warriors
-   puts "Points Per Game Leaders for the Warriors"
-   puts <<-DOC
-    1. Kevin Durant
-    2. Stephen Curry
-    3. Klay Thompson
-   DOC
-  end
 
   def player_info
     input = nil
@@ -34,11 +21,12 @@ class PpgLeaders::CLI
     case input
     when "James"
       puts "More on LeBron"
-    when "Durant"
-      puts "More on KD"
+    when "Irving"
+      puts "More on Irving"
+    when "Love"
+      puts "More on Love"
     when "list"
-      list_leaders_cavs
-      list_leaders_warriors
+      list_leaders
     else
       puts "Not valid input enter list or exit"
     end

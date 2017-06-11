@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
-require './lib/ppg_leaders'
+#require './lib/ppg_leaders'
+require "bundler/setup"
+require "ppg_leaders"
 
 PpgLeaders::CLI.new.call
