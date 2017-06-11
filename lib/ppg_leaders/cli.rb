@@ -11,7 +11,7 @@ class PpgLeaders::CLI
    puts "Points Per Game Leaders for the Cavaliers"
    @players = PpgLeaders::Players.leaders
    @players.each.with_index(1) do |player, index|
-     puts "#{index}. #{player}"
+     puts "#{index}. #{player.name} - #{player.jersey} - #{player.position}"
    end
   end
 
@@ -23,7 +23,8 @@ class PpgLeaders::CLI
     input = gets.chomp
 
     if input.to_i > 0
-      puts @players[input.to_i-1]
+     the_player = @players[input.to_i-1]
+     puts "#{the_player.name} - #{the_player.jersey} - #{the_player.position}"
     elsif input == "list"
       list_leaders
     else
