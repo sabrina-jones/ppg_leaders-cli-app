@@ -25,7 +25,7 @@ def self.scrape_james
    player_1.name = doc.css("p.nba-player-header__first-name").text.strip + " " + doc.css("p.nba-player-header__last-name").text.strip
    player_1.jersey = doc.css("span.nba-player-header__jersey-number").text
    player_1.position = doc.css("span.nba-player-header__position").text
-   player_1.more_info = "this is where we will get more info."
+   player_1.more_info = doc.css("section.nba-player-detail__bio").css("p").text.slice(0,203).strip
 
    player_1
    #binding.pry
@@ -37,6 +37,8 @@ def self.scrape_irving
   player_2.name = doc.css("p.nba-player-header__first-name").text.strip + " " + doc.css("p.nba-player-header__last-name").text.strip
   player_2.jersey = doc.css("span.nba-player-header__jersey-number").text
   player_2.position = doc.css("span.nba-player-header__position").text
+  player_2.more_info = doc.css("section.nba-player-detail__bio").css("p").text.slice(0,203).strip
+  #binding.pry
   player_2
 end
 
@@ -46,6 +48,7 @@ def self.scrape_love
   player_3.name = doc.css("p.nba-player-header__first-name").text.strip + " " + doc.css("p.nba-player-header__last-name").text.strip
   player_3.jersey = doc.css("span.nba-player-header__jersey-number").text
   player_3.position = doc.css("span.nba-player-header__position").text
+  player_3.more_info = doc.css("section.nba-player-detail__bio").css("p").text.slice(0,204).strip
   player_3
 end
 
