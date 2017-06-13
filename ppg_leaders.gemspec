@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "A gem for displaying information about ppg leaders for the Cleveland Cavaliers"
   spec.homepage      = "https://github.com/sabrina-jones/ppg_leaders-cli-app"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
