@@ -4,7 +4,6 @@ class PpgLeaders::CLI
   def call
     list_leaders
     player_info
-    exit_player
   end
 
   def list_leaders
@@ -22,11 +21,14 @@ class PpgLeaders::CLI
     puts "Enter the number of the player you'd like to know more about, type list to see the list again or type exit:"
     input = gets.chomp
 
-    if input.to_i > 0
+    if input.to_i == 1 || input.to_i == 2 || input.to_i == 3
      the_player = @players[input.to_i-1]
      puts "#{the_player.name} - #{the_player.jersey} - #{the_player.position}"
-    elsif input == "list"
+     #puts "this is more info!!"
+   elsif input == "list"
       list_leaders
+   elsif input == "exit"
+        exit_player
     else
       puts "Not valid input enter list or exit"
     end
