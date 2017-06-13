@@ -33,6 +33,8 @@ attr_accessor :name, :jersey, :position
   players = []
 
   players << self.scrape_james
+  players << self.scrape_irving
+
 
 
   players
@@ -45,6 +47,15 @@ def self.scrape_james
    jersey = doc.css("span.nba-player-header__jersey-number").text
    position = doc.css("span.nba-player-header__position").text
    binding.pry
+end
+
+def self.scrape_irving
+  doc = Nokogiri::HTML(open("http://www.nba.com/players/kyrie/irving/202681"))
+  name = doc.css("p.nba-player-header__first-name").text.strip
+  last_name = doc.css("p.nba-player-header__last-name").text.strip
+  jersey = doc.css("span.nba-player-header__jersey-number").text
+  position = doc.css("span.nba-player-header__position").text
+
 end
 
 
