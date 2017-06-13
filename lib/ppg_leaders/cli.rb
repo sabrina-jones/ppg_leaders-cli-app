@@ -24,7 +24,7 @@ class PpgLeaders::CLI
     if input.to_i == 1 || input.to_i == 2 || input.to_i == 3
      the_player = @players[input.to_i-1]
      puts "#{the_player.name} - #{the_player.jersey} - #{the_player.position}"
-     #puts "this is more info!!"
+     puts "#{the_player.more_info}"
    elsif input == "list"
       list_leaders
    elsif input == "exit"

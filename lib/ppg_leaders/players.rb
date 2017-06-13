@@ -1,5 +1,5 @@
 class PpgLeaders::Players
-attr_accessor :name, :jersey, :position
+attr_accessor :name, :jersey, :position, :more_info
 
 def self.leaders
    self.scrape_players
@@ -25,6 +25,7 @@ def self.scrape_james
    player_1.name = doc.css("p.nba-player-header__first-name").text.strip + " " + doc.css("p.nba-player-header__last-name").text.strip
    player_1.jersey = doc.css("span.nba-player-header__jersey-number").text
    player_1.position = doc.css("span.nba-player-header__position").text
+   player_1.more_info = "this is where we will get more info."
 
    player_1
    #binding.pry
