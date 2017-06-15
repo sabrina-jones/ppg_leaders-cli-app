@@ -2,13 +2,14 @@
 class PpgLeaders::CLI
 
   def call
+    PpgLeaders::Scraper.scrape_players
     list_leaders
     player_info
   end
 
   def list_leaders
    puts "Points Per Game Leaders for the Cavaliers"
-   @players = PpgLeaders::Players.leaders
+   @players = PpgLeaders::Player.leaders
    @players.each.with_index(1) do |player, index|
      puts "#{index}. #{player.name} - #{player.jersey} - #{player.position}"
    end
@@ -21,7 +22,7 @@ class PpgLeaders::CLI
     puts "Enter the number of the player you'd like to know more about, type list to see the list again or type exit:"
     input = gets.chomp
 
-    if input.to_i == 1 || input.to_i == 2 || input.to_i == 3
+    if input.to_i.between?(1, @players.length)   #== 1 || input.to_i == 2 || input.to_i == 3
      the_player = @players[input.to_i-1]
      puts "#{the_player.name} - #{the_player.jersey} - #{the_player.position}"
      puts "#{the_player.more_info}"
